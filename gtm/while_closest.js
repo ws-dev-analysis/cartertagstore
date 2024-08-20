@@ -14,7 +14,7 @@ function onClickGAEvent(element) {
           section = _data.title + '-' + section
           // sectionInfos.push(JSON.parse(currentElement.dataset.gaSection));
         }
-        currentElement = currentElement.parentElement;
+        currentElement = currentElement.closest('['+dataName+']');
  
  
     }
@@ -29,10 +29,6 @@ function onClickGAEvent(element) {
     const gaKey = pageInfo.title + section + eventInfo.title
  
 }
- 
- 
- 
- 
  
  
  

@@ -16,7 +16,7 @@ var keyMapping = {
   // data-gtm-section - data-gtm-body
   label: "{{섹션 값}}",
   index: "{{섹션별 인덱스 값}}",
-  isPopup: "{{True - 1 False - 미세팅}}",
+  is_popup: "{{True - 1 False - 미세팅}}",
 
   //data-gtm-click & data-gtm-visibility - data-gtm-body
   label: "{{클릭 텍스트}}",

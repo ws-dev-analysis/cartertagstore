@@ -1,5 +1,5 @@
 <script>
-    (function (element) {
+    (+function (element) {
     
         var dataSections = [];
         
@@ -37,28 +37,28 @@
             return null;
         }
     
+    
         // Get section names
         function getSectionNames(element) {
             var sections = [];
             var currentElement = element.closest('[data-gtm-click]');
             while (currentElement) {
-            if (currentElement.dataset.gtmPage) {
-                break;
-            }
-            var section = currentElement.dataset.gtmSection;
+                if (currentElement.dataset.gtmPage) {
+                    break;
+                }
+                var section = currentElement.dataset.gtmSection;
                 if (section) {
-                sections.push(section);
+                    sections.push(section);
                 }
                 currentElement = currentElement.parentElement;
             }
             return sections.reverse().join('-');
         }
-
+    
         var section = getSectionNames(element);
-        var sectionData = { gtm_section: section };
     
         // Combine data
-        var combinedData = Object.assign({}, pageData, sectionData, clickData);
+        var combinedData = Object.assign({}, pageData, section, clickData);
     
         // Push to dataLayer
         console.log('Click')

@@ -1,45 +1,49 @@
 <script>
-
-function cleanString(input) {
-    // 앞뒤 공백 제거
-    var trimmed = input.trim();
-    // 여러 개의 공백을 하나의 공백으로 변경
-    var cleaned = trimmed.replace(/\s+/g, ' ');
-    return cleaned;
-}
-
-  var page = document.querySelector('#__nuxt');
-
-  var 혜택PICK = document.querySelector('main > div.bg-background-50 > div:nth-child(11) > div.flex.mb-4.items-center > span.text-20.font-bold.mr-1')
-  var section = 혜택PICK.parentElement.parentElement
-
-  var click_1 = document.querySelector('main div.bg-background-50 div:nth-child(11) > div:nth-child(2) .swiper-wrapper .swiper-slide');
-
-  if (page) {
-      page.setAttribute('data-gtm-page', '');
-      page.setAttribute('data-gtm-body', JSON.stringify({
-          page_title: "메인",
-          screen_id: "MAIN", 
-          frame: "SPA", 
-      }));
-  }
-  if (section) {
-      section.setAttribute('data-gtm-section', '')
-      section.setAttribute('data-gtm-body', JSON.stringify({
-          section: 혜택PICK.textContent,
-          index: "5", 
-      }));
-  }
-
-  if (click_1) {
-    document.querySelectorAll('main div.bg-background-50 div:nth-child(11) > div:nth-child(2) .swiper-wrapper .swiper-slide').forEach(function(el){
-            var depth1 = el.querySelector('div .px-5').textContent;
-            var text = el.querySelector('.justify-between').textContent;
-            el.setAttribute('data-gtm-visibility', '')
-            el.setAttribute('data-gtm-body', JSON.stringify({ event: 'cts', category_depth1: cleanString(depth1)}))
-            el.querySelector('.justify-between').setAttribute('data-gtm-click', '')
-            el.querySelector('.justify-between').setAttribute('data-gtm-body', JSON.stringify({ event: 'cts', category_depth1: cleanString(depth1) , text: cleanString(text)}))
-    })
-  }
-  
-  </script>
+    (function(){
+        function cleanString(input) {
+            // 앞뒤 공백 제거
+            var trimmed = input.trim();
+            // 여러 개의 공백을 하나의 공백으로 변경
+            var cleaned = trimmed.replace(/\s+/g, ' ');
+            return cleaned;
+        }
+        
+        var page = document.querySelector('#__nuxt');
+        
+        var cufit = document.querySelector('#__nuxt .bg-background-50 div.py-\\[50px\\].px-6.mt-\\[29px\\].mb-10.bg-\\[url\\(\\\'\\~\\/assets\\/images\\/card\\/cufit-bg\\.png\\\'\\)\\]')
+        var section = cufit? cufit.querySelector('.text-accent-06').textContent : null;
+        
+        var click_1 = cufit? cufit.querySelector('button') : null;
+        
+        if (page) {
+            page.setAttribute('data-gtm-page', '');
+            page.setAttribute('data-gtm-body', JSON.stringify({
+                page_title: "메인",
+                screen_id: "MAIN", 
+                frame: "SPA", 
+            }));
+        }
+        if (section) {
+            section.setAttribute('data-gtm-section', '')
+            section.setAttribute('data-gtm-body', JSON.stringify({
+                section: cleanString(section),
+                section_index: "5", 
+            }));
+        }
+        
+        if (click_1) {
+           click_1.setAttribute('data-gtm-click', '')
+           click_1.setAttribute('data-gtm-body', JSON.stringify({ 
+            event: 'cts', 
+     //       category_depth1: cleanString(section), 
+            text: cleanString(click_1.textContent) 
+            }))
+        }
+    })()
+</script>
+    
+// data-gtm-click
+// data-gtm-visibility 
+// body 에 이벤트 속성 넣지 말고 
+// SECTION 에 isPopup 값으로 popup / cts 구분 
+// label 로 통일 , 섹션도 라벨, 페이지 
