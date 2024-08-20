@@ -36,10 +36,9 @@
 </head>
 
 <body>
-  <div id="data-screen-info"
-  data-view-screen-id='GIFTOS_0' 
-  data-view-page-title='GIFTOS>메인'
-  data-ga-page='{"title": "메인페이지", "id": "123"}'
+  <div 
+  data-gtm-page
+  data-gtm-body='{"title": "A>B>C>D", "id": "D_1"}'
   >
   <div class="hero_area">
     <!-- header section strats -->
@@ -55,40 +54,67 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav  ">
+          <ul class="navbar-nav  "
+          data-gtm-section
+          data-gtm-body="{label1: 'navigation'}"
+          >
             <li class="nav-item active">
               <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="shop.html">
+              <a class="nav-link" href="shop.html"
+              data-gtm-click
+              data-gtm-body="{label: 'Shop'}"
+              >
                 Shop
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="why.html">
+              <a class="nav-link" href="why.html"
+              data-gtm-click
+              data-gtm-body="{label: 'Why Us'}"
+              >
                 Why Us
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="testimonial.html">
+              <a class="nav-link" href="testimonial.html"
+              data-gtm-click
+              data-gtm-body="{label: 'Testimonial'}"
+              >
                 Testimonial
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact Us</a>
+              <a class="nav-link" href="contact.html"
+              data-gtm-click
+              data-gtm-body="{label: 'Contact Us'}"
+              >Contact Us</a>
             </li>
           </ul>
-          <div class="user_option">
-            <a href="">
+          <div class="user_option"
+          data-gtm-section
+          data-gtm-body="{label1: 'user_option'}"
+          >
+            <a href=""
+            data-gtm-click
+            data-gtm-body="{label: 'Login'}"
+            >
               <i class="fa fa-user" aria-hidden="true"></i>
               <span>
                 Login
               </span>
             </a>
-            <a href="">
+            <a href=""
+            data-gtm-click
+            data-gtm-body="{label: 'shopping-bag'}"
+            >
               <i class="fa fa-shopping-bag" aria-hidden="true"></i>
             </a>
-            <form class="form-inline ">
+            <form class="form-inline "
+            data-gtm-click
+            data-gtm-body="{label: 'search'}"
+            >
               <button class="btn nav_search-btn" type="submit">
                 <i class="fa fa-search" aria-hidden="true"></i>
               </button>
@@ -99,14 +125,14 @@
     </header>
     <!-- end header section -->
     <!-- slider section -->
-
-    <section class="slider_section" data-ga-section="title: abc"> 
+     
+    <section class="slider_section" data-gtm-section data-gtm-body="{label1: 'main_carousel', index: 0}"> 
       <div class="slider_container">
-        <div id="carouselExampleIndicators" class="carousel slide ga-cts-click ga-cts-view" data-ride="carousel" data-sec-area='상단'>
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active "
-            data-ga-event = '{name: Welcome To Our1, code: AB123 }'
-            data-ep-label='Welcome To Our1'
+            data-gtm-visibility
+            data-gtm-body="{label:'Welcome To Our Gift Shop1', index: 0}"
             >
               <div class="container-fluid">
                 <div class="row">
@@ -119,7 +145,10 @@
                       <p>
                         Sequi perspiciatis nulla reiciendis, rem, tenetur impedit, eveniet non necessitatibus error distinctio mollitia suscipit. Nostrum fugit doloribus consequatur distinctio esse, possimus maiores aliquid repellat beatae cum, perspiciatis enim, accusantium perferendis.
                       </p>
-                      <a href="">
+                      <a href=""
+                      data-gtm-click
+                      data-gtm-body="{label:'Welcome To Our Gift Shop1', index: 0}"
+                      >
                         Contact Us
                       </a>
                     </div>
@@ -133,7 +162,8 @@
               </div>
             </div>
             <div class="carousel-item "
-            data-ep-label='Welcome To Our2'
+            data-gtm-visibility
+            data-gtm-body="{label:'Welcome To Our Gift Shop2', index: 1}"
             >          
               <div class="container-fluid">
                 <div class="row">
@@ -146,7 +176,10 @@
                       <p>
                         Sequi perspiciatis nulla reiciendis, rem, tenetur impedit, eveniet non necessitatibus error distinctio mollitia suscipit. Nostrum fugit doloribus consequatur distinctio esse, possimus maiores aliquid repellat beatae cum, perspiciatis enim, accusantium perferendis.
                       </p>
-                      <a href="">
+                      <a href=""
+                      data-gtm-click
+                      data-gtm-body="{label:'Welcome To Our Gift Shop2', index: 1}"
+                      >
                         Contact Us
                       </a>
                     </div>
@@ -160,7 +193,8 @@
               </div>
             </div>
             <div class="carousel-item "
-            data-ep-label='Welcome To Our3'
+            data-gtm-visibility
+            data-gtm-body="{label:'Welcome To Our Gift Shop3', index: 2}"
             >
               <div class="container-fluid">
                 <div class="row">
@@ -173,7 +207,10 @@
                       <p>
                         Sequi perspiciatis nulla reiciendis, rem, tenetur impedit, eveniet non necessitatibus error distinctio mollitia suscipit. Nostrum fugit doloribus consequatur distinctio esse, possimus maiores aliquid repellat beatae cum, perspiciatis enim, accusantium perferendis.
                       </p>
-                      <a href="">
+                      <a href=""
+                      data-gtm-click
+                      data-gtm-body="{label:'Welcome To Our Gift Shop3', index: 2}"
+                      >
                         Contact Us
                       </a>
                     </div>
@@ -208,7 +245,7 @@
 
   <!-- shop section -->
 
-  <section class="shop_section layout_padding" data-ga-section='{"title": "섹션_최신상품", "id": "123"}' data-view-trigger='cts-view' data-click-trigger='cts-click' data-sec-area='최신상품'>
+  <section class="shop_section layout_padding" data-gtm-section data-gtm-body='{"label": "최신상품", "index": "1"}' >
     <div class="container">
       <div class="heading_container heading_center">
         <h2>
@@ -218,10 +255,11 @@
       <div class="row">
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box "
-          data-ep-label='Ring'
-          data-ga-event='test-event-att'
+          data-gtm-view-item-list
+          data-gtm-select-item
+          data-gtm-ecommerce="{item_id: 'R_001', item_name: 'Ring', index: 0, item_brand: 'Jongro', item_category: 'jewllery', price: '200'}"
           >
-            <a href=""  data-ga-event='{"title": "클릭이벤트", "id": "123"}'>
+            <a href="" >
               <div class="img-box">
                 <img src="images/p1.png" alt="">
               </div>
@@ -246,7 +284,9 @@
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box "
-          data-ep-label='Watch'
+          data-gtm-view-item-list
+          data-gtm-select-item
+          data-gtm-ecommerce="{item_id: 'W_001', item_name: 'Watch', index: 1, item_brand: 'Lotte', item_category: 'accessary', price: '300'}"
           >
             <a href="">
               <div class="img-box">
@@ -273,7 +313,9 @@
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box "
-          data-ep-label='Teddy Bear'
+          data-gtm-view-item-list
+          data-gtm-select-item
+          data-gtm-ecommerce="{item_id: 'TB_001', item_name: 'Teddy Bear', index: 2, item_brand: 'Thing', item_category: 'toy', price: '110'}"
           >
             <a href="">
               <div class="img-box">
@@ -300,7 +342,9 @@
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box "
-          data-ep-label='Flower Bouquet'
+          data-gtm-view-item-list
+          data-gtm-select-item
+          data-gtm-ecommerce="{item_id: 'FB_001', item_name: 'Flower Bouquet', index: 3, item_brand: 'Good Flower', item_category: 'Flower', price: '45'}"
           >
             <a href="">
               <div class="img-box">
@@ -327,7 +371,9 @@
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box "
-          data-ep-label='Teddy2'
+          data-gtm-view-item-list
+          data-gtm-select-item
+          data-gtm-ecommerce="{item_id: 'TB_002', item_name: 'Teddy2', index: 4, item_brand: 'Good Teddy', item_category: 'Toy', price: '95'}"
           >
             <a href="">
               <div class="img-box">
@@ -354,7 +400,9 @@
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box "
-          data-ep-label='Flower Bouquet2'
+          data-gtm-view-item-list
+          data-gtm-select-item
+          data-gtm-ecommerce="{item_id: 'FB_002', item_name: 'Flower Bouquet2', index: 5, item_brand: 'Giftos', item_category: 'Flower', price: '70'}"
           >
             <a href="">
               <div class="img-box">
@@ -381,7 +429,9 @@
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box "
-          data-ep-label='Watch2'
+          data-gtm-view-item-list
+          data-gtm-select-item
+          data-gtm-ecommerce="{item_id: 'WA_002', item_name: 'Watch2', index: 6, item_brand: 'Gangnam', item_category: 'accessary', price: '400'}"
           >
             <a href="">
               <div class="img-box">
@@ -408,7 +458,9 @@
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box "
-          data-ep-label='Ring2'
+          data-gtm-view-item-list
+          data-gtm-select-item
+          data-gtm-ecommerce="{item_id: 'R_002', item_name: 'Ring2', index: 7, item_brand: 'Ali', item_category: 'jewllery', price: '450'}"
           >
             <a href="">
               <div class="img-box">
@@ -457,11 +509,7 @@
           </div>
           <div class="col-lg-6">
             <div class="detail-box">
-              <div class="heading_container cts-view"
-              data-ep-type='banner'
-              data-ep-categroy='메인'
-              data-ep-label='BEST SAVINGS'
-              data-ep-area='중단'
+              <div class="heading_container "
               >
                 <h2>
                   Best Savings on <br>
@@ -472,21 +520,11 @@
                 Qui ex dolore at repellat, quia neque doloribus omnis adipisci, ipsum eos odio fugit ut eveniet blanditiis praesentium totam non nostrum dignissimos nihil eius facere et eaque. Qui, animi obcaecati.
               </p>
               <div class="btn-box">
-                <a href="#" class="btn1 cts-click"
-                data-ep-type='banner'
-                data-ep-categroy='메인'
-                data-ep-action='클릭'
-                data-ep-label='BEST SAVINGS'
-                data-ep-area='중단'
+                <a href="#" class="btn1 "
                 >
                   Buy Now
                 </a>
-                <a href="#" class="btn2 cts-click"
-                data-ep-type='banner'
-                data-ep-categroy='메인'
-                data-ep-action='클릭'
-                data-ep-label='BEST SAVINGS'
-                data-ep-area='중단'
+                <a href="#" class="btn2 "
                 >
                   See More
                 </a>
