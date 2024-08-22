@@ -1,0 +1,9 @@
+https://dmoweb3.lottecard.co.kr/front/satellite/main/discovery
+
+https://dmoweb3.lottecard.co.kr/front/finance/
+
+https://dmoweb3.lottecard.co.kr/front/card/
+
+https://dmoweb3.lottecard.co.kr/front/card/basic/credit/apply?step=0  //카드신청
+
+https://dmoweb3.lottecard.co.kr/front/satellite/main/card  //메인

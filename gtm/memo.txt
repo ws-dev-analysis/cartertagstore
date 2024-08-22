@@ -1,0 +1,4 @@
+1. click element, element visibility -> 이벤트 버블링 적용 X 
+  해결1. click_trigger.js 처럼 모든 요소 뒤져서 클릭 리스너 달아야함
+  해결2. 각 요소별로 지정해서 추가 -> 클릭은 누락 생길 수도 있음
+    -> 노출은 gtm 활용 , 클릭은 click_trigger.js 활용

@@ -1,0 +1,72 @@
+<script>
+    (+function (element) {
+    
+        var dataSections = [];
+        
+        // Get page info
+        function getPageData() {
+            var pageElement = document.querySelector('[data-gtm-page]');
+            if (!pageElement) {
+                return null;
+            }
+            return pageElement.dataset.gtmBody ? JSON.parse(pageElement.dataset.gtmBody) : null;
+        }
+    
+        var pageData = getPageData();
+        if (!pageData) {
+            return null;
+        }
+
+        // Get click info
+       
+        function getClickData(element) {
+            var clickElement = element.closest('[data-gtm-click]');
+            if (!clickElement) {
+                return null;
+            }
+            var clickData = clickElement.dataset.gtmBody ? JSON.parse(clickElement.dataset.gtmBody) : null;
+            if (clickData && clickData.gtm_event) {
+                clickData.gtm_event += '_click';
+                clickData.event = clickData.gtm_event
+            }
+            return clickData;
+        }
+    
+        var clickData = getClickData(element);
+        if (!clickData) {
+            return null;
+        }
+    
+    
+        // Get section names
+        function getSectionNames(element) {
+            var sections = [];
+            var currentElement = element.closest('[data-gtm-click]');
+            while (currentElement) {
+                if (currentElement.dataset.gtmPage) {
+                    break;
+                }
+                var section = currentElement.dataset.gtmSection;
+                if (section) {
+                    sections.push(section);
+                }
+                currentElement = currentElement.parentElement;
+            }
+            return sections.reverse().join('-');
+        }
+    
+        var section = getSectionNames(element);
+    
+        // Combine data
+        var combinedData = Object.assign({}, pageData, section, clickData);
+    
+        // Push to dataLayer
+        console.log('Click')
+        console.log(combinedData);
+        dataLayer.push(combinedData);
+    
+        return combinedData;
+      
+    })({{Click Element}});
+    
+    </script>

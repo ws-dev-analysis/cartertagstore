@@ -1,0 +1,71 @@
+<script>
+(function (element) {
+
+    var dataSections = [];
+    
+    // Get page info
+    function getPageData() {
+        var pageElement = document.querySelector('[data-gtm-page]');
+        if (!pageElement) {
+            return null;
+        }
+        return pageElement.dataset.gtmBody ? JSON.parse(pageElement.dataset.gtmBody) : null;
+    }
+
+    var pageData = getPageData();
+    if (!pageData) {
+        return null;
+    }
+
+    // Get visibility data
+    function getVisibilityData(element) {
+        var visibilityElement = element.closest('[data-gtm-visibility]');
+        if (!visibilityElement) {
+            return null;
+        }
+        var visibilityData = visibilityElement.dataset.gtmBody ? JSON.parse(visibilityElement.dataset.gtmBody) : null;
+        if (visibilityData && visibilityData.gtm_event) {
+            visibilityData.gtm_event += '_view';
+            visibilityData.event = visibilityData.gtm_event
+        }
+        return visibilityData;
+    }
+
+    var visibilityData = getVisibilityData(element);
+    if (!visibilityData) {
+        return null;
+    }
+
+    // Get section names
+    function getSectionNames(element) {
+        var sections = [];
+        var currentElement = element.closest('[data-gtm-visibility]');
+        while (currentElement) {
+        if (currentElement.dataset.gtmPage) {
+            break;
+        }
+        var section = currentElement.dataset.gtmSection;
+            if (section) {
+            sections.push(section);
+            }
+            currentElement = currentElement.parentElement;
+        }
+        return sections.reverse().join('-');
+    }
+
+    var section = getSectionNames(element);
+    var sectionData = { gtm_section: section };
+
+    // Combine data
+    var combinedData = Object.assign({}, pageData, sectionData ,visibilityData);
+
+    // Push to dataLayer
+    console.log('Visibility')
+    console.log(combinedData);
+    dataLayer.push(combinedData);
+
+    return combinedData;
+  
+})({{Click Element}});
+
+</script>

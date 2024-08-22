@@ -1,0 +1,74 @@
+<script>
+  (function(element) {
+    // page
+    var pageElement = document.querySelector('[data-gtm-page]');
+
+    // pageElement 없으면 에러 푸시
+    if (!pageElement) {
+      window.dataLayer.push({
+        event: 'error_pageElement_null',
+        event_name: 'error_pageElement_null',
+        url: document.location.href
+      });
+      return
+    }
+
+    // pageElement > gtmBody 없으면 에러 푸시
+    var pageData = pageElement.dataset.gtmBody ? JSON.parse(pageElement.dataset.gtmBody) : null;
+      
+    if (!pageData) {
+      window.dataLayer.push({
+        event: 'error_pageData_null',
+        event_name: 'error_pageData_null',
+        url: document.location.href
+      });
+      return
+    }
+
+    // section
+    var sectionElement = element.closest('[data-gtm-section]');
+    if (sectionElement) {
+      var sectionData = sectionElement.dataset.gtmBody ? JSON.parse(sectionElement.dataset.gtmBody) : null;
+    }
+
+    // click
+    var clickElement = element.closest('[data-gtm-click]');
+
+    // clickElement 없으면 에러 푸시
+    if (!clickElement) {
+      window.dataLayer.push({
+        event: 'error_clickElement_null',
+        event_name: 'error_clickElement_null',
+        click_element: element || 'null',
+        url: document.location.href
+      });
+      return
+    }
+
+    var clickData = clickElement.dataset.gtmBody ? JSON.parse(clickElement.dataset.gtmBody) : null;
+
+    // clickElement > gtmBody 없으면 에러 푸시
+    if (!clickData) {
+      window.dataLayer.push({
+        event: 'error_clickData_null',
+        event_name: 'error_clickData_null',
+        click_element: element || 'null',
+        url: document.location.href
+      });
+      return
+    } else {
+      clickData.event += '_click';
+      clickData.event_name = event;
+    }
+
+    // Combine data
+    var combinedData = Object.assign({}, pageData, sectionData, clickData);
+
+    // Push to dataLayer
+    console.log('Click')
+    console.log(combinedData);
+    dataLayer.push(combinedData);
+
+    return combinedData;
+  })({{Click Element}});
+</script>

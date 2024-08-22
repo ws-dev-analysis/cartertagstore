@@ -1,0 +1,42 @@
+<script>
+function findClosestDataAttributes(element) {
+    var attributeList = ['data-view-screen-id', 'data-sec-area', 'data-ep-label', 'data-click-trigger'];
+
+    function getAttributes(el) {
+        return attributeList.reduce(function(attributes, attr) {
+            if (el.hasAttribute(attr)) {
+                attributes[attr] = el.getAttribute(attr);
+            }
+            return attributes;
+        }, {});
+    }
+
+    var currentElement = element;
+    var resultAttributes = {};
+
+    var selector = attributeList.map(function(attr) {
+        return '[' + attr + ']';
+    }).join(', ');
+
+    while (currentElement) {
+        var attributes = getAttributes(currentElement);
+        if (Object.keys(attributes).length > 0) {
+            resultAttributes = Object.assign({}, resultAttributes, attributes);
+        }
+        if (attributes['data-view-screen-id']) {
+            return resultAttributes;
+        }
+        currentElement = currentElement.parentElement.closest(selector);
+    }
+
+    return null; // If no matching element is found
+}
+
+// 사용 예시
+var result = findClosestDataAttributes({{Click Element}});
+console.log(result);
+window.dataLayer.push({
+  event: '노출_closest',
+  ga_att_data: result
+})
+</script>

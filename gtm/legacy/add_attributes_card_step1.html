@@ -1,0 +1,32 @@
+<script>
+  var click_1 = document.querySelector('.btn.btn-primary.w-full.text-18.h-14');
+  var page_1 = document.querySelector('#__nuxt');
+  var page_2 = document.querySelector('#headerSlot .font-bold');
+  var click_2 = document.querySelector('.btn.btn-primary.w-full.text-18.h-14');
+  var section_2 = document.querySelector('[requireditem="crdScDc"]');
+  
+  if (page_1 && section_2) {
+      var sectionText = section_2.querySelector('.w-full .text-22').textContent;
+      page_1.setAttribute('data-gtm-page', '');
+      page_1.setAttribute('data-gtm-body', JSON.stringify({
+          page_title: "카드>신용카드>카드정보>" + sectionText,
+          screen_id: "CD_1_1_1B_2", 
+          frame: "SPA", 
+          card_name: "카드명", 
+          card_code: "가상카드코드", 
+          card_new_or_exist: "신규", 
+          ard_type: "완편", 
+          prod_funnel_name: "카드선택",
+      }));
+  }
+  
+  if (click_1) {
+      click_1.setAttribute('data-gtm-click', '');
+      click_1.setAttribute('data-gtm-visibility', '');
+      click_1.setAttribute('data-gtm-body', JSON.stringify({ event: 'cts', text: "다음" }));
+  }
+  
+  if (section_2) {
+      section_2.setAttribute('data-gtm-section', section_2.querySelector('.w-full .text-22').textContent);
+  }
+  </script>

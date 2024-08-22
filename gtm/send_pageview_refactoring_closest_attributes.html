@@ -1,0 +1,19 @@
+<script>
+  (function() {
+    var pageElement = document.querySelector('[data-gtm-page]');
+    var pageData = window._gtm.getGtmBodyData(pageElement);
+    if (!pageData) return;
+
+    var combinedData = Object.assign({}, pageData, {
+      event: 'mounted_screenview',
+      pageData: pageData
+    });
+
+    console.log('ScreenView');
+    console.log(combinedData);
+    dataLayer.push(combinedData);
+
+    return combinedData;
+
+  })();
+</script>

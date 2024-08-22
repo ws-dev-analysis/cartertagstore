@@ -1,0 +1,33 @@
+<script>
+    (function () {
+    
+        var dataSections = [];
+        
+        // Get page info
+        function getPageData() {
+            var pageElement = document.querySelector('[data-gtm-page]');
+            if (!pageElement) {
+                return null;
+            }
+            var pageData = pageElement.dataset.gtmBody ? JSON.parse(pageElement.dataset.gtmBody) : null;
+            if (pageData) {
+                pageData.event = "screen_view"
+                return pageData
+            }
+        }
+    
+        var pageData = getPageData();
+        if (!pageData) {
+            return null;
+        }
+    
+        // Push to dataLayer
+        console.log('Pageview')
+        console.log(pageData);
+        dataLayer.push(pageData);
+    
+        return pageData;
+      
+    })();
+    
+    </script>

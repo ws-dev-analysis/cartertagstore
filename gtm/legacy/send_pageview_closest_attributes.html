@@ -1,0 +1,41 @@
+<script>
+  (function() {
+    // page
+    var pageElement = document.querySelector('[data-gtm-page]');
+
+    // pageElement 없으면 에러 푸시
+    if (!pageElement) {
+      window.dataLayer.push({
+        event: 'error_pageElement_null',
+        event_name: 'error_pageElement_null',
+        url: document.location.href
+      });
+      return
+    }
+
+    // pageElement > gtmBody 없으면 에러 푸시
+    var pageData = pageElement.dataset.gtmBody ? JSON.parse(pageElement.dataset.gtmBody) : null;
+      
+    if (!pageData) {
+      window.dataLayer.push({
+        event: 'error_pageData_null',
+        event_name: 'error_pageData_null',
+        url: document.location.href
+      });
+      return
+    }
+
+    // Combine data
+    var combinedData = Object.assign({}, pageData, {
+      event: 'mounted_screenview',
+      event_name: 'screen_view'
+    });
+
+    // Push to dataLayer
+    console.log('ScreenView')
+    console.log(combinedData);
+    dataLayer.push(combinedData);
+
+    return combinedData;
+  })();
+</script>
